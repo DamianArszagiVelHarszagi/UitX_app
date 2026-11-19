@@ -3,7 +3,13 @@ import Navbar from "@/components/nav";
 
 export default function AppLayout() {
 	return (
-		<Tabs tabBar={() => <Navbar />}>
+		<Tabs
+			tabBar={() => <Navbar />}
+			screenOptions={{
+				sceneStyle: { backgroundColor: "white" },
+				headerShown: false,
+			}}
+		>
 			<Tabs.Screen name="index" options={{ title: "Home" }} />
 			<Tabs.Screen name="browse" options={{ title: "Browse" }} />
 			<Tabs.Screen name="map" options={{ title: "Map" }} />
