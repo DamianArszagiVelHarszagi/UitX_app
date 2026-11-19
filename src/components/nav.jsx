@@ -1,24 +1,21 @@
 import { Link } from "expo-router";
-import { View } from "react-native";
-import { StyleSheet } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { View, StyleSheet } from "react-native";
 
 export default function Navbar() {
-	const insets = useSafeAreaInsets();
-
 	return (
 		<View style={[styles.container]}>
+			<h1>Home</h1>
 			<View style={[styles.nav]}>
-				<Link href={"/"} style={styles.link}>
+				<Link href={"/"} style={styles.linkHome}>
 					Home
 				</Link>
-				<Link href={"/browse"} style={styles.link}>
+				<Link href={"/browse"} style={styles.linkBrowse}>
 					Browse
 				</Link>
-				<Link href={"/map"} style={styles.link}>
+				<Link href={"/map"} style={styles.linkMap}>
 					Map
 				</Link>
-				<Link href={"/friends"} style={styles.link}>
+				<Link href={"/friends"} style={styles.linkFriends}>
 					Friends
 				</Link>
 			</View>
@@ -35,7 +32,13 @@ const styles = StyleSheet.create({
 		padding: 35,
 		alignItems: "center",
 	},
-	link: {
-		fontSize: 18,
+	linkHome: {
+		fontSize: 15,
+		fontFamily: "Poppins-Regular",
+		padding: 10,
+		borderRadius: 30,
+		backgroundColor: "white",
+		alignItems: "center",
+		justifyContent: "center",
 	},
 });

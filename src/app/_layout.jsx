@@ -1,7 +1,27 @@
+import { useEffect } from "react";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
 import { Tabs } from "expo-router/js-tabs";
 import Navbar from "@/components/nav";
 
+SplashScreen.preventAutoHideAsync();
+
 export default function AppLayout() {
+	const [loaded, error] = useFonts({
+		"Poppins-Regular": require("@/assets/fonts/Poppins-Regular.ttf"),
+		"Poppins-Bold": require("@/assets/fonts/Poppins-Bold.ttf"),
+	});
+
+	useEffect(() => {
+		if (loaded) {
+			SplashScreen.hide();
+		}
+	}, [loaded]);
+
+	if (!loaded) {
+		return null;
+	}
+
 	return (
 		<Tabs
 			tabBar={() => <Navbar />}
