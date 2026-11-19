@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function ListScreen() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Lijst</Text>
+      <Text style={styles.title}>Home</Text>
     </View>
   );
 }

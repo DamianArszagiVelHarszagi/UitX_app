@@ -1,9 +1,13 @@
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router/js-tabs";
+import Navbar from "@/components/nav";
 
-export default function RootLayout() {
+export default function AppLayout() {
 	return (
-		<Stack>
-			<Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-		</Stack>
+		<Tabs tabBar={() => <Navbar />}>
+			<Tabs.Screen name="index" options={{ title: "Home" }} />
+			<Tabs.Screen name="browse" options={{ title: "Browse" }} />
+			<Tabs.Screen name="map" options={{ title: "Map" }} />
+			<Tabs.Screen name="friends" options={{ title: "Friends" }} />
+		</Tabs>
 	);
 }
