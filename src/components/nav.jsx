@@ -4,7 +4,6 @@ import { View, StyleSheet } from "react-native";
 export default function Navbar() {
 	return (
 		<View style={[styles.container]}>
-			<h1>Home</h1>
 			<View style={[styles.nav]}>
 				<Link href={"/"} style={styles.linkHome}>
 					Home
