@@ -14,7 +14,7 @@ export default function SwipeCard({ event, onSwipe }) {
 			toValue: { x: 0, y: 0 },
 			friction: 5,
 			useNativeDriver: true,
-		});
+		}).start();
 	}
 	const panResponder = useRef(
 		PanResponder.create({
@@ -34,7 +34,6 @@ export default function SwipeCard({ event, onSwipe }) {
 					return;
 				}
 				springBack();
-				start();
 			},
 		}),
 	).current;

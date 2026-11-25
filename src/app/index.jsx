@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { useFocusEffect } from "expo-router";
 import { events } from "@/data/events";
 import SwipeCard from "@/components/swipecard";
+import EventFeed from "@/components/eventfeed";
 
 export default function HomeScreen() {
 	const [currentIndex, setCurrentIndex] = useState(0);
