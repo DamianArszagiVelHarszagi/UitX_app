@@ -1,21 +1,45 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useCallback, useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { useFocusEffect } from "expo-router";
+import { events } from "@/data/events";
+import SwipeCard from "@/components/swipecard";
 
 export default function HomeScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
-    </View>
-  );
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const event = events[currentIndex];
+
+	useFocusEffect(
+		useCallback(() => {
+			return () => {
+				setCurrentIndex(0);
+			};
+		}, []),
+	);
+
+	function handleSwipe(answer) {
+		console.log(answer, event.id);
+		setCurrentIndex(currentIndex + 1);
+	}
+
+	if (!event) {
+		return (
+			<View style={styles.container}>
+				<Text>Geen events meer</Text>
+			</View>
+		);
+	}
+
+	return (
+		<View style={styles.container}>
+			<SwipeCard key={event.id} event={event} onSwipe={handleSwipe} />
+		</View>
+	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
+	container: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+	},
 });
