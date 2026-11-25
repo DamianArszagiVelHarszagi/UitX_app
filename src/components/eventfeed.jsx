@@ -9,6 +9,9 @@ export default function EventFeed({ events }) {
 	}
 	return (
 		<FlatList
+			pagingEnabled
+			showsVerticalScrollIndicator={false}
+			windowSize={3}
 			onLayout={(e) => setPageHeight(e.nativeEvent.layout.height)}
 			data={events}
 			keyExtractor={(event) => String(event.id)}
