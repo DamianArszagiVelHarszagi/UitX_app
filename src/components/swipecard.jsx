@@ -30,7 +30,7 @@ export default function SwipeCard({ event, onSwipe }) {
 						toValue: { x: direction * 500, y: 0 },
 						duration: 300,
 						useNativeDriver: true,
-					}).start(() => onSwipeRef.current(direction > 0 ? "ja" : "nee"));
+					}).start(() => onSwipeRef.current(direction > 0 ? "join" : "save"));
 					return;
 				}
 				springBack();

@@ -5,6 +5,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 export default function EventFeed({ events }) {
 	const listRef = useRef(null);
 	const [pageHeight, setPageHeight] = useState(0);
+
 	function handleSwipe(answer, event, index) {
 		console.log(answer, event.id);
 		const nextIndex = index + 1;
