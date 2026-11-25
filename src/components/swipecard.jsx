@@ -21,6 +21,8 @@ export default function SwipeCard({ event, onSwipe }) {
 			onMoveShouldSetPanResponder: (_, g) =>
 				Math.abs(g.dx) > Math.abs(g.dy) && Math.abs(g.dx) > 10,
 			onPanResponderMove: (_, g) => swipe.setValue({ x: g.dx, y: 0 }),
+			onPanResponderTerminationRequest: () => false,
+			onPanResponderTerminate: () => springBack(),
 			onPanResponderRelease: (_, g) => {
 				const direction = Math.sign(g.dx);
 				if (Math.abs(g.dx) > 100) {
