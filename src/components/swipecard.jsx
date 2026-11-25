@@ -9,6 +9,13 @@ export default function SwipeCard({ event, onSwipe }) {
 		onSwipeRef.current = onSwipe;
 	}, [onSwipe]);
 
+	function springBack() {
+		Animated.spring(swipe, {
+			toValue: { x: 0, y: 0 },
+			friction: 5,
+			useNativeDriver: true,
+		});
+	}
 	const panResponder = useRef(
 		PanResponder.create({
 			onMoveShouldSetPanResponder: (_, g) =>
@@ -24,11 +31,8 @@ export default function SwipeCard({ event, onSwipe }) {
 					}).start(() => onSwipeRef.current(direction > 0 ? "ja" : "nee"));
 					return;
 				}
-				Animated.spring(swipe, {
-					toValue: { x: 0, y: 0 },
-					friction: 5,
-					useNativeDriver: true,
-				}).start();
+				springBack();
+				start();
 			},
 		}),
 	).current;
