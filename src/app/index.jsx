@@ -11,7 +11,7 @@ export default function HomeScreen() {
 			return () => {
 				setFeedkey((key) => key + 1);
 			};
-		}),
+		}, []),
 	);
 	return <EventFeed key={Feedkey} events={events} />;
 }

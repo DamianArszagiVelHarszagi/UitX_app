@@ -1,16 +1,19 @@
-import { View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { Image } from "expo-image";
 
 export default function MapPin() {
-	return <View style={styles.pin} />;
+	return (
+		<Image
+			source={require("@/assets/icons/map_pin_event.svg")}
+			style={styles.pin}
+			contentFit="contain"
+		/>
+	);
 }
 
 const styles = StyleSheet.create({
 	pin: {
-		width: 24,
-		height: 24,
-		borderRadius: 12,
-		backgroundColor: "#340C7F",
-		borderWidth: 3,
-		borderColor: "white",
+		width: 32,
+		height: 45,
 	},
 });
