@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Animated, PanResponder, StyleSheet, Text } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function SwipeCard({ event, onSwipe }) {
 	const swipe = useRef(new Animated.ValueXY()).current;
@@ -51,6 +52,11 @@ export default function SwipeCard({ event, onSwipe }) {
 			]}
 			{...panResponder.panHandlers}
 		>
+			<LinearGradient
+				colors={["transparent", "#340C7F"]}
+				locations={[0.4, 0.8]}
+				style={StyleSheet.absoluteFill}
+			/>
 			<Text>{event.title}</Text>
 		</Animated.View>
 	);
@@ -64,5 +70,6 @@ const styles = StyleSheet.create({
 		borderRadius: 20,
 		alignItems: "center",
 		justifyContent: "center",
+		overflow: "hidden",
 	},
 });
