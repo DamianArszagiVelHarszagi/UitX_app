@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
+import { events } from "@/data/events";
+import MapPin from "@/components/mappin";
 
 export default function MapScreen() {
 	return (
@@ -11,7 +13,13 @@ export default function MapScreen() {
 				latitudeDelta: 0.03,
 				longitudeDelta: 0.03,
 			}}
-		/>
+		>
+			{events.map((event) => (
+				<Marker key={event.id} coordinate={event.coordinate}>
+					<MapPin />
+				</Marker>
+			))}
+		</MapView>
 	);
 }
 
