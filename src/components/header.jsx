@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
-import { Image } from "react-native";
+import { Image } from "expo-image";
 
 export default function Header() {
 	return (
-		<View style={StyleSheet.header}>
+		<View style={styles.header}>
 			<Text style={styles.logo}>UitX</Text>
 			<View style={styles.profile}>
 				<Image
@@ -25,8 +25,9 @@ const styles = StyleSheet.create({
 		paddingVertical: 12,
 	},
 	logo: {
-		width: 200,
-		height: 65,
+		fontFamily: "Reservation-Wide",
+		fontSize: 64,
+		color: "#1EFF00",
 	},
 	profile: {
 		width: 40,

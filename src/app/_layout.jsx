@@ -7,10 +7,11 @@ import Navbar from "@/components/nav";
 SplashScreen.preventAutoHideAsync();
 
 export default function AppLayout() {
-	const [loaded, error] = useFonts({
+	const [loaded] = useFonts({
 		"Poppins-Regular": require("@/assets/fonts/Poppins-Regular.ttf"),
 		"Poppins-Bold": require("@/assets/fonts/Poppins-Bold.ttf"),
 		"Poppins-Black": require("@/assets/fonts/Poppins-Black.ttf"),
+		"Reservation-wide": require("@/assets/fonts/Reservation-Wide-BorderlessButton.ttf"),
 	});
 
 	useEffect(() => {

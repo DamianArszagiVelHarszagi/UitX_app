@@ -24,4 +24,9 @@ export default function HomeScreen() {
 	);
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	screen: {
+		flex: 1,
+		backgroundColor: "#40404A",
+	},
+});
