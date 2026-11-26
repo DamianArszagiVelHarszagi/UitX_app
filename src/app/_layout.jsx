@@ -11,7 +11,7 @@ export default function AppLayout() {
 		"Poppins-Regular": require("@/assets/fonts/Poppins-Regular.ttf"),
 		"Poppins-Bold": require("@/assets/fonts/Poppins-Bold.ttf"),
 		"Poppins-Black": require("@/assets/fonts/Poppins-Black.ttf"),
-		"Reservation-wide": require("@/assets/fonts/Reservation-Wide-BorderlessButton.ttf"),
+		"Reservation-Wide": require("@/assets/fonts/Reservation-Wide-Bold.ttf"),
 	});
 
 	useEffect(() => {

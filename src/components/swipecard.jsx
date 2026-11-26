@@ -59,8 +59,7 @@ export default function SwipeCard({ event, onSwipe }) {
 const styles = StyleSheet.create({
 	card: {
 		width: 350,
-		height: 550,
-		marginTop: 100,
+		flex: 1,
 		backgroundColor: "#ddd",
 		borderRadius: 20,
 		alignItems: "center",

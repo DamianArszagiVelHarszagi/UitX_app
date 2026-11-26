@@ -21,12 +21,11 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",
-		paddingHorizontal: 24,
-		paddingVertical: 12,
+		paddingHorizontal: 20,
 	},
 	logo: {
 		fontFamily: "Reservation-Wide",
-		fontSize: 64,
+		fontSize: 100,
 		color: "#1EFF00",
 	},
 	profile: {
