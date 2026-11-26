@@ -1,23 +1,54 @@
-import { Link } from "expo-router";
-import { View, StyleSheet } from "react-native";
+import { Link, usePathname } from "expo-router";
+import { View, StyleSheet, Pressable, Text } from "react-native";
+import { Image } from "expo-image";
+
+const tabs = [
+	{
+		href: "/",
+		label: "Home",
+		greenIcon: require("@/assets/icons/home_green.svg"),
+		whiteIcon: require("@/assets/icons/home_white.svg"),
+	},
+	{
+		href: "/browse",
+		label: "Browse",
+		greenIcon: require("@/assets/icons/browse_green.svg"),
+		whiteIcon: require("@/assets/icons/browse_white.svg"),
+	},
+	{
+		href: "/map",
+		label: "Map",
+		greenIcon: require("@/assets/icons/map_green.svg"),
+		whiteIcon: require("@/assets/icons/map_white.svg"),
+	},
+	{
+		href: "/friends",
+		label: "Friends",
+		greenIcon: require("@/assets/icons/friends_green.svg"),
+		whiteIcon: require("@/assets/icons/friends_white.svg"),
+	},
+];
 
 export default function Navbar() {
+	const pathname = usePathname();
 	return (
-		<View style={[styles.container]}>
-			<View style={[styles.nav]}>
-				<Link href={"/"} style={styles.linkHome}>
-					Home
-				</Link>
-				<Link href={"/browse"} style={styles.linkBrowse}>
-					Browse
-				</Link>
-				<Link href={"/map"} style={styles.linkMap}>
-					Map
-				</Link>
-				<Link href={"/friends"} style={styles.linkFriends}>
-					Friends
-				</Link>
-			</View>
+		<View style={styles.nav}>
+			{tabs.map((tab) => {
+				const isActive = pathname === tab.href;
+
+				return (
+					<Link key={tab.href} href={tab.href} asChild>
+						<Pressable style={isActive ? styles.activeTab : styles.tab}>
+							<Image
+								source={isActive ? tab.greenIcon : tab.whiteIcon}
+								style={styles.icon}
+								contentFit="contain"
+							/>
+							{isActive && <Text style={styles.label}>{tab.label}</Text>}
+						</Pressable>
+					</Link>
+				);
+			})}
 		</View>
 	);
 }
@@ -25,19 +56,42 @@ const styles = StyleSheet.create({
 	container: {},
 	nav: {
 		flexDirection: "row",
-		justifyContent: "space-around",
-		backgroundColor: "#1EFF00",
+		justifyContent: "center",
+		backgroundColor: "#40404A",
 		borderRadius: 20,
 		padding: 35,
+		gap: 16,
 		alignItems: "center",
+		borderTopLeftRadius: 20,
+		borderTopRightRadius: 20,
+		paddingVertical: 40,
 	},
-	linkHome: {
-		fontSize: 15,
-		fontFamily: "Poppins-Regular",
-		padding: 10,
-		borderRadius: 30,
-		backgroundColor: "white",
+	tab: {
+		width: 55,
+		height: 55,
+		borderRadius: 28,
+		backgroundColor: "#1EFF00",
 		alignItems: "center",
 		justifyContent: "center",
+	},
+	activeTab: {
+		height: 48,
+		paddingHorizontal: 20,
+		borderRadius: 30,
+		borderWidth: 1.5,
+		borderColor: "#1EFF00",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center",
+		gap: 8,
+	},
+	icon: {
+		width: 24,
+		height: 24,
+	},
+	label: {
+		color: "#1EFF00",
+		fontFamily: "Poppins-Regular",
+		fontSize: 18,
 	},
 });

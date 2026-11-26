@@ -1,21 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from "react-native";
+import MapView, { Marker } from "react-native-maps";
+import { events } from "@/data/events";
+import MapPin from "@/components/mappin";
 
 export default function MapScreen() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Map</Text>
-    </View>
-  );
+	return (
+		<MapView
+			style={styles.map}
+			initialRegion={{
+				latitude: 50.8503,
+				longitude: 4.3517,
+				latitudeDelta: 0.03,
+				longitudeDelta: 0.03,
+			}}
+		>
+			{events.map((event) => (
+				<Marker key={event.id} coordinate={event.coordinate}>
+					<MapPin />
+				</Marker>
+			))}
+		</MapView>
+	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
+	map: {
+		flex: 1,
+	},
 });
