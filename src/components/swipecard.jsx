@@ -54,7 +54,7 @@ export default function SwipeCard({ event, onSwipe }) {
 		>
 			<LinearGradient
 				colors={["transparent", "#340C7F"]}
-				locations={[0.4, 0.8]}
+				locations={[0.1, 0.7]}
 				style={StyleSheet.absoluteFill}
 			/>
 			<Text>{event.title}</Text>
