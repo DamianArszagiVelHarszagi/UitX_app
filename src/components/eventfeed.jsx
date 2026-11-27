@@ -1,6 +1,8 @@
 import SwipeCard from "./swipecard";
 import { useState, useRef } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import { headerHeight } from "./header";
+import { navHeight } from "./nav";
 
 export default function EventFeed({ events }) {
 	const listRef = useRef(null);
@@ -35,7 +37,8 @@ export default function EventFeed({ events }) {
 }
 const styles = StyleSheet.create({
 	page: {
-		paddingVertical: 12,
+		paddingTop: headerHeight + 12,
+		paddingBottom: navHeight - 32,
 		paddingHorizontal: 24,
 		alignItems: "center",
 		justifyContent: "center",

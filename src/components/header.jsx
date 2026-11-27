@@ -1,23 +1,35 @@
-import { View, Text, StyleSheet, useWindowDimensions } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Image } from "expo-image";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+export const headerHeight = 110;
 
 export default function Header() {
 	return (
-		<View style={styles.header}>
-			<Text style={styles.logo}>UitX</Text>
-			<View style={styles.profile}>
-				<Image
-					source={require("@/assets/icons/profile_white.svg")}
-					style={styles.profileIcon}
-					contentFit="contain"
-				/>
+		<SafeAreaView style={styles.header} edges={["top"]}>
+			<View style={styles.row}>
+				<Text style={styles.logo}>UitX</Text>
+				<View style={styles.profile}>
+					<Image
+						source={require("@/assets/icons/profile_white.svg")}
+						style={styles.profileIcon}
+						contentFit="contain"
+					/>
+				</View>
 			</View>
-		</View>
+		</SafeAreaView>
 	);
 }
 
 const styles = StyleSheet.create({
 	header: {
+		position: "absolute",
+		top: 0,
+		left: 0,
+		right: 0,
+	},
+	row: {
+		height: headerHeight,
 		flexDirection: "row",
 		justifyContent: "space-between",
 		alignItems: "center",

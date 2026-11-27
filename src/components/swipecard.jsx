@@ -72,6 +72,6 @@ const styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 		overflow: "hidden",
-		boxShadow: "0 0 30px 5px rgba(255, 255, 255, 0.3)",
+		boxShadow: "0 0 30px 5px rgba(255, 255, 255, 0.5)",
 	},
 });
