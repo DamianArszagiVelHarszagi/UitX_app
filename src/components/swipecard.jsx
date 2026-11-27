@@ -64,12 +64,14 @@ export default function SwipeCard({ event, onSwipe }) {
 
 const styles = StyleSheet.create({
 	card: {
-		width: 350,
+		width: "100%",
+		maxWidth: 450,
 		flex: 1,
 		backgroundColor: "#ddd",
 		borderRadius: 20,
 		alignItems: "center",
 		justifyContent: "center",
 		overflow: "hidden",
+		boxShadow: "0 0 30px 5px rgba(255, 255, 255, 0.3)",
 	},
 });

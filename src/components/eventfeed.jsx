@@ -36,6 +36,7 @@ export default function EventFeed({ events }) {
 const styles = StyleSheet.create({
 	page: {
 		paddingVertical: 12,
+		paddingHorizontal: 24,
 		alignItems: "center",
 		justifyContent: "center",
 	},

@@ -2,6 +2,7 @@ import { Link, usePathname } from "expo-router";
 import { View, StyleSheet, Pressable, Text } from "react-native";
 import { Image } from "expo-image";
 
+export const navHeight = 135;
 const tabs = [
 	{
 		href: "/",
@@ -53,18 +54,19 @@ export default function Navbar() {
 	);
 }
 const styles = StyleSheet.create({
-	container: {},
 	nav: {
+		position: "absolute",
+		bottom: 0,
+		left: 0,
+		right: 0,
+		height: navHeight,
 		flexDirection: "row",
 		justifyContent: "center",
-		backgroundColor: "#40404A",
-		borderRadius: 20,
-		padding: 35,
-		gap: 16,
 		alignItems: "center",
+		gap: 16,
+		backgroundColor: "#40404A",
 		borderTopLeftRadius: 20,
 		borderTopRightRadius: 20,
-		paddingVertical: 40,
 	},
 	tab: {
 		width: 55,
