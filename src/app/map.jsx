@@ -7,6 +7,7 @@ export default function MapScreen() {
 	return (
 		<MapView
 			style={styles.map}
+			userInterfaceStyle="dark"
 			initialRegion={{
 				latitude: 50.8503,
 				longitude: 4.3517,

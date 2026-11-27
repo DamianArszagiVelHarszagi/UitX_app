@@ -4,7 +4,7 @@ import { Image } from "expo-image";
 export default function MapPin() {
 	return (
 		<Image
-			source={require("@/assets/icons/map_pin_event.svg")}
+			source={require("@/assets/icons/pin_green.svgnpx e")}
 			style={styles.pin}
 			contentFit="contain"
 		/>
