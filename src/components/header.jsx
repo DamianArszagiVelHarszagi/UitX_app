@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet } from "react-native";
 import { Image } from "expo-image";
+import { Link } from "expo-router";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export const headerHeight = 110;
@@ -9,13 +10,15 @@ export default function Header() {
 		<SafeAreaView style={styles.header} edges={["top"]}>
 			<View style={styles.row}>
 				<Text style={styles.logo}>UitX</Text>
-				<View style={styles.profile}>
-					<Image
-						source={require("@/assets/icons/profile_white.svg")}
-						style={styles.profileIcon}
-						contentFit="contain"
-					/>
-				</View>
+				<Link href="/profile" asChild>
+					<TouchableOpacity style={styles.profile}>
+						<Image
+							source={require("@/assets/icons/profile_white.svg")}
+							style={styles.profileIcon}
+							contentFit="contain"
+						/>
+					</TouchableOpacity>
+				</Link>
 			</View>
 		</SafeAreaView>
 	);
